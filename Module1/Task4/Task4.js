@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 function sortStudent() {
   const name = prompt("Enter the student's name:");
   const houseNumber = Math.floor(Math.random() * 4) + 1;

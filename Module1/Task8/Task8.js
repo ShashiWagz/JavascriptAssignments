@@ -1,4 +1,5 @@
- function findLeapYears() {
+'use strict';
+function findLeapYears() {
         // Prompt the user for the start and end years
         const startYear = parseInt(prompt("Enter the start year:"), 10);
         const endYear = parseInt(prompt("Enter the end year:"), 10);
