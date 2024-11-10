@@ -1,20 +1,22 @@
+'use strict';
+function checkPrime() {
 
- let number = parseInt(prompt("Enter an integer:"), 10);
+        const num = parseInt(prompt("Enter an integer:"), 10);
+
+        function isPrime(n) {
+            if (n <= 1) return false; // 1 and below are not prime numbers
+            if (n <= 3) return true;  // 2 and 3 are prime numbers
+            if (n % 2 === 0 || n % 3 === 0) return false; // divisible by 2 or 3
 
 
- function isPrime(num) {
-   if (num <= 1) return false; // numbers less than or equal to 1 are not prime
-   if (num === 2) return true; // 2 is the only even prime number
-   if (num % 2 === 0) return false; // other even numbers are not prime
+            for (let i = 5; i * i <= n; i += 6) {
+                if (n % i === 0 || n % (i + 2) === 0) return false;
+            }
+            return true;
+        }
+        const resultText = isPrime(num)
+            ? `${num} is a prime number.`
+            : `${num} is not a prime number.`;
 
-   for (let i = 3; i <= Math.sqrt(num); i += 2) {
-     if (num % i === 0) return false;
-   }
-   return true;
- }
-
- if (isPrime(number)) {
-   document.body.innerHTML = `<p>${number} is a prime number.</p>`;
- } else {
-   document.body.innerHTML = `<p>${number} is not a prime number.</p>`;
- }
+        document.getElementById("result").innerHTML = resultText;
+    }
