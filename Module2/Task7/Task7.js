@@ -1,26 +1,23 @@
 'use strict';
-function rollDice() {
-        // Prompt the user for the number of dice rolls
-        const numRolls = parseInt(prompt("Enter the number of dice rolls:"), 10);
-
-        // Validate the input to ensure it is a positive integer
-        if (isNaN(numRolls) || numRolls <= 0) {
-            document.getElementById("target").innerHTML =
-                "Please enter a valid positive integer for the number of rolls.";
-            return;
+function rollDice(sides) {
+            return Math.floor(Math.random() * sides) + 1;
         }
 
-        // Initialize the sum of dice rolls
-        let sum = 0;
+        function rollUntilMax() {
+            const rollResults = document.getElementById("rollResults");
+            const sides = parseInt(document.getElementById("sides").value); // Get the number of sides from the input
+            let rollResult;
 
-        // Roll the dice 'numRolls' times
-        for (let i = 0; i < numRolls; i++) {
-            // Generate a random number between 1 and 6
-            const roll = Math.floor(Math.random() * 6) + 1;
-            sum += roll;
+
+
+            do {
+                rollResult = rollDice(sides);
+                // Create a new list item for each roll result and append it to the unordered list
+                const listItem = document.createElement("li");
+                listItem.textContent = `Roll result: ${rollResult}`;
+                rollResults.appendChild(listItem);
+            } while (rollResult !== sides); // Stop when the result is equal to the number of sides (max number)
         }
 
-        // Display the result in the HTML document
-        document.getElementById("target").innerHTML =
-            `The sum of the dice rolls is: ${sum}`;
-    }
+
+        document.getElementById("rollButton").addEventListener("click", rollUntilMax);
