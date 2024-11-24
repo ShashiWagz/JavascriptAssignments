@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route to School</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px; /* Set map height */
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find a Route to School</h1>
+
+    <!-- Address Search Form -->
+    <form id="address-form">
+        <input id="address" type="text" placeholder="Enter your address" required>
+        <button type="submit">Find Route</button>
+    </form>
+
+    <!-- Trip Details -->
+    <div id="trip-info">
+        <p><strong>Start Time:</strong> <span id="start-time"></span></p>
+        <p><strong>End Time:</strong> <span id="end-time"></span></p>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Link to external JavaScript -->
+    <script src="Task7.js"></script>
+</body>
+</html>
